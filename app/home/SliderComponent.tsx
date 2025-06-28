@@ -3,15 +3,14 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import SlideOverlay from "./SlideOverlay";
 
-import slider1 from "../../public/images/slider1.jpg";
-import slider2 from "../../public/images/slider2.jpg";
-import slider3 from "../../public/images/slider3.jpg";
-import slider4 from "../../public/images/slider4.jpg";
-import slider5 from "../../public/images/slider5.jpg";
+import slider1 from "@/public/images/slider1.jpg";
+import slider2 from "@/public/images/slider2.jpg"; 
+import slider3 from "@/public/images/slider3.jpg";
+import slider4 from "@/public/images/slider4.jpg";
+import slider5 from "@/public/images/slider5.jpg";
 
 // Dynamically import react-slick to avoid SSR issues
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
@@ -36,7 +35,9 @@ const settings = {
 };
 
 const SliderComponent: React.FC = () => (
-  <div className="w-[88%] lg:w-full mx-auto my-8" id="home">
+
+    <div className="w-full dark:bg-neutral-700">
+      <div className="w-[88%] mx-auto py-8" id="home">
     <Slider {...settings} className="mx-auto">
       {slides.map((slide, index) => (
         <div key={index} className="flex justify-center items-center">
@@ -56,6 +57,7 @@ const SliderComponent: React.FC = () => (
       ))}
     </Slider>
   </div>
+    </div>
 );
 
 export default SliderComponent;
