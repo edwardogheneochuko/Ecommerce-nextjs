@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import Slider from 'react-slick';
-import ProductCart from './ProductCart'; // Make sure name matches
+import ProductCart from './ProductCart';
 
 type Card = {
   id: number;
@@ -14,13 +13,17 @@ type Card = {
   price: number;
   category: string;
   inStock: boolean;
+  material: string;
+  roomType: string;
+  style: string;
+  quantity: number;
+  count: number;
 };
 
 type CardCarouselProps = {
   title: string;
   cards: Card[];
 };
-
 
 const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
   <button
@@ -38,11 +41,11 @@ const NextArrow = ({ onClick }: { onClick?: () => void }) => (
     className="absolute right-[-10px] top-1/2 transform -translate-y-1/2 bg-white
     text-black shadow-md p-2 rounded-full hover:bg-pink-400 hover:text-white
     cursor-pointer transition-colors z-10 outline-none"
-    onClick={onClick}>
-      <FaArrowRight size={20} />
+    onClick={onClick}
+  >
+    <FaArrowRight size={20} />
   </button>
 );
-
 
 const CardCarousel: React.FC<CardCarouselProps> = ({ title, cards }) => {
   const settings = {
@@ -71,7 +74,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ title, cards }) => {
   };
 
   return (
-      <div className=" w-full max-w-7xl mx-auto py-32 px-4">
+    <div className="w-full max-w-7xl mx-auto py-32 px-4">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-amber-600">
           {title}
@@ -87,11 +90,10 @@ const CardCarousel: React.FC<CardCarouselProps> = ({ title, cards }) => {
           {cards.map((card) => (
             <div className="px-2" key={card.id}>
               <ProductCart
+                id={card.id}
                 image={card.image}
                 text={card.text}
                 price={card.price}
-                category={card.category}
-                inStock={card.inStock}
               />
             </div>
           ))}

@@ -12,7 +12,8 @@
           "material": "Fabric",
           "roomType": "Living Room",
           "style": "Modern",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 2,
@@ -24,7 +25,8 @@
           "material": "Velvet",
           "roomType": "Living Room",
           "style": "Classic",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 3,
@@ -36,7 +38,8 @@
           "material": "Fabric",
           "roomType": "Living Room",
           "style": "Modern",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 4,
@@ -48,7 +51,8 @@
           "material": "Linen",
           "roomType": "Living Room",
           "style": "Minimalist",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 5,
@@ -60,7 +64,8 @@
           "material": "Leather",
           "roomType": "Living Room",
           "style": "Modern",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 6,
@@ -72,7 +77,8 @@
           "material": "Fabric",
           "roomType": "Living Room",
           "style": "Contemporary",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 7,
@@ -84,7 +90,8 @@
           "material": "Velvet",
           "roomType": "Living Room",
           "style": "Luxury",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 8,
@@ -96,7 +103,8 @@
           "material": "Wood",
           "roomType": "Living Room",
           "style": "Rustic",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 9,
@@ -108,7 +116,8 @@
           "material": "Linen",
           "roomType": "Living Room",
           "style": "Scandinavian",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 10,
@@ -120,7 +129,8 @@
           "material": "Wood",
           "roomType": "Living Room",
           "style": "Vintage",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 11,
@@ -132,7 +142,8 @@
           "material": "Fabric",
           "roomType": "Living Room",
           "style": "Functional",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 12,
@@ -144,7 +155,8 @@
           "material": "Leather",
           "roomType": "Living Room",
           "style": "Mid-Century",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 13,
@@ -156,7 +168,8 @@
           "material": "Fabric",
           "roomType": "Living Room",
           "style": "Traditional",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 14,
@@ -168,7 +181,8 @@
           "material": "Velvet",
           "roomType": "Living Room",
           "style": "Transitional",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         },
         {
           "id": 15,
@@ -180,7 +194,8 @@
           "material": "Fabric",
           "roomType": "Living Room",
           "style": "Eclectic",
-          "quantity": 1
+          "quantity": 1,
+          "count": 0
         }
       ],
 

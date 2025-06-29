@@ -1,19 +1,13 @@
-
+'use client'
 
 import React from 'react';
-import { products } from '@/public/data/data.json';
+import { useStoreData } from '@/store/shopStore';
 import CardCarousel from './CardCarousel';
 
 const NewArrival = () => {
+  const items = useStoreData(state => state.items);
 
-  const cards = products.slice(0, 8).map((item) => ({
-    id: item.id,
-    image: item.image,
-    text: item.text,
-    price: item.price,
-    category: item.category,
-    inStock: item.inStock,
-  }));
+  const cards = items.slice(0, 8);
 
   return (
     <div className='dark:bg-neutral-800'>
