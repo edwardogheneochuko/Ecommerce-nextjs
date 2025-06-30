@@ -10,7 +10,7 @@ export default function ThemeToggleButton() {
 
   return (
     <button onClick={toggleTheme} className='cursor-pointer hover:text-pink-500'>
-      {theme === 'light' ? <FaSun /> :  <FaMoon/> }
+      {theme === 'light' ? <FaMoon /> :  <FaSun /> }
     </button>
   );
 }

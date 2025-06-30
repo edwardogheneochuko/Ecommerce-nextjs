@@ -1,7 +1,7 @@
 'use client'
 
 import { FaHeart, FaShoppingCart } from 'react-icons/fa';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useStoreData } from '@/store/shopStore';
 
@@ -13,7 +13,7 @@ type ProductCartProps = {
 };
 
 const ProductCart: React.FC<ProductCartProps> = ({ id, image, text, price }) => {
-  const { toggleCart } = useStoreData();
+  const { toggleCart,toggleWishlist,isInWishlist } = useStoreData();
   const count = useStoreData(state =>
     state.items.find(item => item.id === id)?.count ?? 0
   );
@@ -33,10 +33,14 @@ const ProductCart: React.FC<ProductCartProps> = ({ id, image, text, price }) => 
       <div className='flex items-center justify-between px-4 pt-0'>
         <span className='text-xl font-bold text-gray-700'>${price}</span>
         <div className='flex space-x-3'>
-          <FaHeart />
+          <button onClick={() => toggleWishlist(id)}
+            className={` cursor-pointer
+            ${isInWishlist(id) ? 'text-rose-600' : 'text-gray-700'}`}>
+            <FaHeart />
+            </button>
           <button
             onClick={() => toggleCart(id)}
-            className={` cursor-pointer ${count > 0 ? 'text-green-600' : 'text-black'}`}>
+            className={` cursor-pointer ${count > 0 ? 'text-green-600' : 'text-gray-700'}`}>
             <FaShoppingCart />
           </button> 
         </div>

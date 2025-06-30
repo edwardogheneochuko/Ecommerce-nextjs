@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import products from '@/public/data/data.json';
 
-// ✅ Define item type
+//  Define item type
 export type Item = {
   id: number;
   image: string;
@@ -17,23 +17,28 @@ export type Item = {
   count: number;
 };
 
-// ✅ Store type
+// Store type
 type StoreData = {
   items: Item[];
   toggleCart: (id: number) => void;
+  wishlist: number[]
+  toggleWishlist: (id:number) => void
+  isInWishlist: (id: number) => boolean
+  getWishlistItems: () => Item[]
   incrementCart: (id: number) => void;
+  decrementCart: (id:number) => void
+  getPickedItems: () => Item[]
 };
 
-// ✅ Create store
 export const useStoreData = create<StoreData>()(
   devtools(
     persist(
-      (set) => ({
+      (set,get) => ({
         items: (products.products as Item[]).map(item => ({
           ...item,
           count: item.count ?? 0
         })),
-
+        wishlist: [],
         toggleCart: (id) => {
           set((state) => ({
             items: state.items.map(item =>
@@ -43,6 +48,18 @@ export const useStoreData = create<StoreData>()(
             )
           }));
         },
+        toggleWishlist: (id) =>
+          set((state) => ({
+            wishlist: state.wishlist.includes(id)
+            ? state.wishlist.filter((itemId) => itemId !== id)
+            : [...state.wishlist, id],
+          })),
+          isInWishlist: (id) => get().wishlist.includes(id),
+          
+      getWishlistItems: () => {
+        const state = get()
+        return state.items.filter((item) => state.wishlist.includes(item.id))
+      },
         // Increment count by 1
         incrementCart: (id) => {
           set((state) => ({
@@ -52,6 +69,17 @@ export const useStoreData = create<StoreData>()(
                 : item
             )
           }));
+        },
+        decrementCart: (id) => {
+          set((state) => ({
+            items: state.items.map(item =>
+              item.id === id && item.count > 0 ? {...item, count: item.count - 1}
+              : item
+            )
+          }))
+        },
+        getPickedItems: () => {
+          return get().items.filter((item) => item.count > 0)
         }
       }),
       {

@@ -5,9 +5,19 @@ import { useState } from "react"
 import React from 'react'
 import {FaTruck, FaHeart, FaShoppingCart, FaTimes, FaBars} from "react-icons/fa"
 import ThemeToggleButton from "./ThemeButton"
+import { useStoreData } from "@/store/shopStore"
 
 
 const Navbar = () => {
+  const {getPickedItems,getWishlistItems} = useStoreData()
+  // ✅ Get picked items and compute total quantity
+  const pickedItems = getPickedItems()
+  const totalPickedCount = pickedItems.reduce((sum,item)=> sum + item.count, 0)
+
+  // ✅ Get wishlist items and count
+  const wishlistItems = getWishlistItems()
+  const wishlistCount = wishlistItems.length
+  
   const inputStyles = 'hover:text-amber-600 cursor-pointer'
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -44,9 +54,21 @@ const Navbar = () => {
           <FaTruck className="hover:text-pink-400" />
           <Link href="/wishlist" className="relative">
             <FaHeart className="hover:text-pink-400" />
+            {wishlistCount > 0 && (
+              <span className="absolute -top-3 right-3 ring-2
+                     text-xs text-white bg-red-400 rounded-full px-1.5 py-0.5">
+                {wishlistCount}
+              </span>
+            )}
           </Link>
           <Link href="/cart" className="relative">
             <FaShoppingCart className="hover:text-pink-400"/>
+              {totalPickedCount > 0 && (
+                <span className="absolute -top-3 right-3 text-xs text-white
+                bg-pink-400 rounded-full px-1.5 py-0.5 ring-1">
+                  {totalPickedCount}
+                </span>
+              )}
           </Link>
           <ThemeToggleButton />
          </div>
